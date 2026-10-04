@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ozone Fitness Planet — Kurnool</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Teko:wght@600;700&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700;800&display=swap');
+
+/* ---------- Mileast display serif (header brand name) ---------- */
+@font-face{
+  font-family:'Mileast';
+  src:url('Mileast.otf') format('opentype');
+  font-weight:400;font-style:normal;font-display:swap;
+}
+@font-face{
+  font-family:'Mileast';
+  src:url('Mileast-Italic.otf') format('opentype');
+  font-weight:400;font-style:italic;font-display:swap;
+}
+
+:root{
+  --bg:#0a0a0a;
+  --bg-2:#0f0f0f;
+  --card:#131313;
+  --card-hi:#181818;
+  --line:#262626;
+  --red:#39ff14;
+  --red-soft:#7cff64;
+  --red-deep:#1f8f0d;
+  --white:#f2f2f2;
+  --dim:#adadad;
+  --dimmer:#7a7a7a;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--white);font-family:'Barlow',sans-serif;overflow-x:hidden;}
+::selection{background:var(--red);color:#000;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+
+h1,h2,h3,.display{font-family:'Anton',sans-serif;font-weight:400;letter-spacing:0.5px;text-transform:uppercase;line-height:1.06;}
+.eyebrow{font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--red-soft);font-size:13px;display:flex;align-items:center;gap:10px;}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--red);display:inline-block;}
+.eyebrow.center::before{display:none;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
+section{position:relative;padding:88px 0;}
+.center{text-align:center;margin-left:auto;margin-right:auto;}
+.page{display:none;}
+.page.active{display:block;}
+
+/* ---------- tap feedback (all devices) ---------- */
+*{-webkit-tap-highlight-color:rgba(57,255,20,0.22);}
+[data-nav],.nav-links a,.quick-link,.service-card,.why-card,.trainer-card,.brand,.footer-col a,.service-detail summary,button,.btn{-webkit-tap-highlight-color:rgba(57,255,20,0.28);}
+
+/* ---------- header / nav ---------- */
+header{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(10,10,10,0.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+nav{max-width:1180px;margin:0 auto;padding:26px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:nowrap;min-height:0;}
+.brand{display:flex;align-items:center;gap:14px;min-width:0;flex:1 1 auto;overflow:hidden;cursor:pointer;}
+.brand img{width:66px;height:66px;border-radius:50%;object-fit:cover;flex:0 0 auto;background:#0d1730;border:1.5px solid var(--red-deep);}
+.brand-name{
+  font-family:'Mileast','Cormorant Garamond',Georgia,serif;
+  font-weight:400;
+  font-size:38px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  white-space:nowrap;
+  line-height:1;
+  display:flex;align-items:center;
+  overflow:hidden;text-overflow:ellipsis;min-width:0;position:relative;
+  padding-bottom:8px;
+  color:#fdfdfd;
+  transform:none;
+  text-shadow:0 2px 12px rgba(0,0,0,0.5);
+}
+.brand-name span{
+  font-style:italic;
+  color:var(--red);
+  margin:0 8px;
+  text-shadow:0 0 18px rgba(57,255,20,0.7);
+}
+.brand-name::after{
+  content:"";position:absolute;left:0;right:6%;bottom:0;height:2px;
+  background:linear-gradient(90deg, var(--red) 0%, transparent 100%);
+  transform:none;
+}
+.nav-links{display:flex;gap:24px;font-family:'Barlow Condensed',sans-serif;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;font-size:14px;}
+.nav-links a{color:var(--dim);transition:color .2s;padding-bottom:4px;border-bottom:2px solid transparent;cursor:pointer;}
+.nav-links a:hover{color:var(--white);}
+.nav-links a.active{color:var(--white);border-bottom-color:var(--red);}
+.nav-right{display:flex;align-items:center;gap:14px;flex:0 0 auto;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;background:var(--red);color:#06110a;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:14px;border:none;cursor:pointer;transition:transform .18s, box-shadow .18s;white-space:nowrap;}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(57,255,20,0.4);}
+.btn.outline{background:transparent;border:1.5px solid var(--red);color:var(--white);}
+.btn.outline:hover{background:rgba(57,255,20,0.1);}
+.hamburger{display:none;width:38px;height:38px;border:1px solid var(--line);background:transparent;cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px;padding:0;flex:0 0 auto;}
+.hamburger span{width:18px;height:2px;background:var(--white);display:block;transition:transform .2s, opacity .2s;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+/* ---------- page hero (interior) ---------- */
+.page-hero{padding:195px 0 70px;background:radial-gradient(ellipse 700px 400px at 85% 10%, rgba(57,255,20,0.12), transparent 60%),var(--bg);border-bottom:1px solid var(--line);}
+.page-hero.photo-bg{position:relative;padding:225px 0 90px;background-size:cover;background-position:center;background-repeat:no-repeat;border-bottom:none;}
+.page-hero h1{font-size:clamp(36px,6vw,60px);margin-top:14px;}
+.page-hero p{color:var(--dim);max-width:620px;margin-top:18px;font-size:16.5px;line-height:1.6;}
+.page-hero.photo-bg p{color:#d8d8d8;}
+.page-hero.photo-bg h1{color:#fff;text-shadow:0 4px 24px rgba(0,0,0,0.6);}
+.crumb{font-family:'Barlow Condensed',sans-serif;color:var(--dimmer);letter-spacing:1.5px;text-transform:uppercase;font-size:12.5px;margin-bottom:16px;}
+.crumb a{color:var(--dim);cursor:pointer;}
+.crumb a:hover{color:var(--red-soft);}
+.cap{margin-top:24px;color:#fff;font-family:'Barlow Condensed',sans-serif;letter-spacing:2px;text-transform:uppercase;font-size:13px;font-weight:700;display:flex;align-items:center;gap:10px;}
+.cap::before{content:"";width:26px;height:2px;background:var(--red);display:inline-block;}
+
+.hero-bg1{background-image:linear-gradient(180deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.90) 100%),url('https://images.pexels.com/photos/9545914/pexels-photo-9545914.jpeg?auto=compress&cs=tinysrgb&w=1600');}
+.hero-bg2{background-image:linear-gradient(180deg, rgba(23,19,16,0.80) 0%, rgba(23,19,16,0.55) 45%, rgba(23,19,16,0.88) 100%),url('https://images.pexels.com/photos/9958668/pexels-photo-9958668.jpeg?auto=compress&cs=tinysrgb&w=1600');}
+.hero-bg3{background-image:linear-gradient(180deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.90) 100%),url('https://images.pexels.com/photos/14013675/pexels-photo-14013675.jpeg?auto=compress&cs=tinysrgb&w=1600');}
+.hero-bg4{background-image:url('https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg?auto=compress&cs=tinysrgb&w=1600');}
+
+/* ---------- quick links ---------- */
+.quick-links{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line);border:1px solid var(--line);margin-top:50px;}
+.quick-link{background:var(--bg);display:flex;flex-direction:column;transition:background .2s, transform .2s;overflow:hidden;cursor:pointer;}
+.quick-link:hover{background:var(--card);transform:translateY(-4px);}
+.quick-img{width:100%;height:170px;object-fit:cover;object-position:center 20%;filter:grayscale(4%) contrast(1.02);transition:transform .35s;}
+.quick-link:hover .quick-img{transform:scale(1.05);}
+.quick-body{padding:24px 24px 30px;display:flex;flex-direction:column;gap:14px;flex:1;}
+.quick-link .ico{width:42px;height:42px;border-radius:50%;background:rgba(57,255,20,0.12);color:var(--red);display:flex;align-items:center;justify-content:center;font-family:'Anton',sans-serif;font-size:18px;}
+.quick-link h3{font-family:'Barlow',sans-serif;text-transform:none;font-weight:700;font-size:17px;}
+.quick-link span{color:var(--dim);font-size:13.5px;}
+.quick-link .arrow{margin-top:auto;color:var(--red-soft);font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:1px;font-size:12.5px;text-transform:uppercase;}
+
+/* ---------- hero ---------- */
+.hero{display:flex;align-items:center;padding:197px 0 0;position:relative;
+  background:linear-gradient(100deg, rgba(4,10,7,0.97) 0%, rgba(4,10,7,0.95) 32%, rgba(4,10,7,0.78) 48%, rgba(4,10,7,0.32) 60%, rgba(4,10,7,0.06) 72%, rgba(4,10,7,0.14) 100%),
+  linear-gradient(to top, rgba(4,10,7,0.5) 0%, rgba(4,10,7,0) 34%),
+  url('hero-bg.jpg');
+  background-size:cover;background-position:78% 6%;background-repeat:no-repeat;background-color:var(--bg);min-height:740px;overflow:hidden;}
+.hero-photo-layer{display:none;}
+.hero-grid{position:relative;z-index:2;max-width:clamp(340px,46vw,620px);padding-bottom:56px;}
+.hero .wrap{margin:0;max-width:none;padding-left:clamp(28px,5vw,80px);padding-right:20px;}
+.hero .eyebrow{color:var(--red-soft);margin-bottom:8px;}
+.hero h1{font-size:clamp(44px,6.4vw,86px);margin:8px 0 20px;color:#fdfbf6;line-height:0.98;}
+.hero h1 .line2{color:var(--red);display:block;}
+.hero p.lead{font-size:17px;color:#e4e1d8;line-height:1.6;margin-bottom:28px;max-width:520px;}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:34px;}
+.hero .btn{padding:17px 30px;font-size:15px;}
+.hero .btn.outline{color:#fdfbf6;border-color:rgba(253,251,246,0.55);}
+.hero-features{display:flex;align-items:flex-start;gap:0;border-top:1px solid rgba(253,251,246,0.16);padding-top:22px;}
+.hero-features .feat{flex:1;display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding-right:18px;}
+.hero-features .feat + .feat{border-left:1px solid rgba(253,251,246,0.16);padding-left:18px;}
+.hero-features .feat svg{width:26px;height:26px;stroke:var(--red);flex-shrink:0;}
+.hero-features .feat small{font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;font-size:12px;color:#e4e1d8;line-height:1.3;}
+
+/* ---------- section heads ---------- */
+.section-head{max-width:640px;margin-bottom:44px;}
+.section-head h2{font-size:clamp(30px,4.2vw,48px);margin-top:14px;}
+.section-head p{color:var(--dim);font-size:16px;margin-top:16px;line-height:1.6;}
+
+/* ---------- services grid ---------- */
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--line);border:1px solid var(--line);}
+.service-card{background:var(--bg);transition:background .2s;position:relative;overflow:hidden;display:flex;flex-direction:column;cursor:pointer;}
+.service-card:hover{background:var(--card);}
+.service-thumb{width:100%;height:190px;overflow:hidden;position:relative;background:#0d0d0d;}
+.service-thumb img{width:100%;height:100%;object-fit:cover;object-position:center 20%;filter:grayscale(12%) contrast(1.05);transition:transform .35s;}
+.service-card:hover .service-thumb img{transform:scale(1.06);}
+.service-body{padding:22px 24px 28px;flex:1;display:flex;flex-direction:column;}
+.service-num{font-family:'Barlow Condensed',sans-serif;font-weight:700;color:var(--dimmer);font-size:13px;letter-spacing:1px;}
+.service-card h3{font-family:'Barlow',sans-serif;text-transform:none;font-weight:700;font-size:18px;margin:14px 0 10px;}
+.service-card p{color:var(--dim);font-size:14px;line-height:1.55;}
+.tag-pop{position:absolute;top:14px;right:14px;background:var(--red);color:#06110a;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:1px;font-size:10.5px;padding:4px 9px;text-transform:uppercase;z-index:2;}
+
+/* ---------- quote block ---------- */
+.quote-block{background:var(--bg-2);}
+.quote-grid{display:flex;flex-direction:column;align-items:center;text-align:center;max-width:680px;margin:0 auto;}
+.quote-grid.two-col{display:grid;grid-template-columns:0.55fr 1.45fr;gap:56px;align-items:center;max-width:1120px;text-align:left;}
+.quote-photo-wrap{width:150px;height:150px;min-width:150px;border-radius:50%;overflow:hidden;border:3px solid var(--red);box-shadow:0 12px 30px rgba(57,255,20,0.2);margin-bottom:28px;}
+.quote-photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;}
+.quote-photo-round{width:220px;aspect-ratio:1/1;border-radius:50%;overflow:hidden;border:3px solid var(--red-deep);box-shadow:0 12px 30px rgba(57,255,20,0.22);background:var(--card);margin:0 auto;}
+.quote-photo-round img{width:100%;height:100%;object-fit:cover;filter:grayscale(10%) contrast(1.05);}
+.quote-mark{font-family:'Anton',sans-serif;font-size:56px;color:var(--red);line-height:0.4;display:block;margin-bottom:10px;}
+.quote-text{font-family:'Anton',sans-serif;font-size:clamp(22px,2.8vw,32px);line-height:1.3;text-transform:none;letter-spacing:0;color:var(--white);}
+.quote-by{margin-top:22px;color:var(--dim);font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;text-transform:uppercase;font-size:14px;}
+.quote-by b{color:var(--red-soft);}
+
+/* ---------- why grid ---------- */
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--line);border:1px solid var(--line);}
+.why-card{background:var(--bg);overflow:hidden;display:flex;flex-direction:column;padding:34px 26px;}
+.why-card.with-img{padding:0;}
+.why-img{width:100%;height:170px;object-fit:cover;object-position:center 20%;filter:grayscale(4%) contrast(1.02);transition:transform .35s;}
+.why-card:hover .why-img{transform:scale(1.05);}
+.why-body{padding:26px 26px 30px;flex:1;}
+.why-card .ico{width:46px;height:46px;border-radius:50%;background:rgba(57,255,20,0.14);color:var(--red);display:flex;align-items:center;justify-content:center;font-family:'Anton',sans-serif;font-size:19px;margin-bottom:18px;}
+.why-card h3{font-family:'Barlow',sans-serif;text-transform:none;font-weight:700;font-size:17px;margin-bottom:8px;}
+.why-card p{color:var(--dim);font-size:14px;line-height:1.55;}
+
+/* ---------- CTA banner ---------- */
+.cta-banner{background:radial-gradient(ellipse 900px 500px at 50% 0%, rgba(57,255,20,0.14), transparent 60%),var(--bg-2);text-align:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.cta-banner h2{font-size:clamp(28px,4.4vw,50px);margin-top:14px;}
+.cta-banner p{color:var(--dim);max-width:560px;margin:18px auto 32px;font-size:16.5px;line-height:1.6;}
+.cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+
+/* ---------- plans ---------- */
+.plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.plan-card{background:var(--card);border:1px solid var(--line);display:flex;flex-direction:column;position:relative;overflow:hidden;}
+.plan-card.featured{border-color:var(--red);box-shadow:0 0 0 1px var(--red), 0 30px 60px rgba(57,255,20,0.14);}
+.plan-ribbon{position:absolute;top:0;right:0;background:var(--red);color:#06110a;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:1.5px;font-size:11.5px;padding:8px 16px;text-transform:uppercase;z-index:2;}
+.plan-thumb{width:100%;height:140px;overflow:hidden;}
+.plan-thumb img{width:100%;height:100%;object-fit:cover;filter:grayscale(10%) contrast(1.05);}
+.plan-head{padding:26px 26px 18px;border-bottom:1px solid var(--line);}
+.plan-head h3{font-family:'Anton',sans-serif;font-size:23px;}
+.plan-head p{color:var(--dim);font-size:13.5px;margin-top:8px;}
+.plan-rows{padding:8px 26px 22px;flex:1;}
+.plan-row{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0;border-bottom:1px dashed var(--line);font-size:14.5px;gap:12px;flex-wrap:wrap;}
+.plan-row:last-child{border-bottom:none;}
+.plan-row .term{color:var(--dim);flex:1 1 auto;}
+.plan-row .price{font-family:'Anton',sans-serif;font-size:17px;color:var(--white);display:flex;align-items:baseline;gap:6px;text-align:right;}
+.plan-row .price small{font-family:'Barlow Condensed',sans-serif;color:var(--dimmer);font-size:11px;margin-left:4px;flex-basis:100%;text-align:right;}
+.plan-row .price .strike{font-family:'Barlow Condensed',sans-serif;color:var(--dimmer);font-size:13px;text-decoration:line-through;font-weight:600;}
+.plan-row .price .offer{color:var(--red);}
+.plan-foot{padding:0 26px 26px;}
+.pt-benefits{margin-top:16px;display:grid;grid-template-columns:1fr;gap:10px;}
+.pt-benefits li{list-style:none;display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--dim);}
+.pt-benefits li::before{content:"";min-width:8px;height:8px;margin-top:5px;background:var(--red);display:inline-block;transform:rotate(45deg);}
+.note-strip{margin-top:32px;border:1px solid var(--line);border-left:3px solid var(--red);padding:16px 22px;color:var(--dim);font-size:14px;background:var(--card);}
+
+/* ---------- icon list ---------- */
+.icon-list{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line);border:1px solid var(--line);}
+.icon-item{background:var(--bg);padding:30px 26px;}
+.icon-item .glyph{font-size:26px;margin-bottom:14px;display:block;}
+.icon-item h3{font-family:'Barlow',sans-serif;text-transform:none;font-weight:700;font-size:17px;margin-bottom:8px;}
+.icon-item p{color:var(--dim);font-size:14px;line-height:1.55;}
+
+/* ---------- about split ---------- */
+.about-split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+.about-split img{border:1px solid var(--line);filter:grayscale(10%) contrast(1.05);width:100%;height:360px;object-fit:cover;}
+.about-split p{color:var(--dim);line-height:1.75;margin-bottom:16px;font-size:16px;}
+
+/* ---------- video ---------- */
+.video-section{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.video-frame{position:relative;max-width:760px;margin:0 auto;border:1px solid var(--line);background:var(--card);padding:10px;box-shadow:0 20px 50px rgba(0,0,0,0.4);}
+.video-frame video{width:100%;max-height:480px;object-fit:cover;display:block;}
+.video-caption{max-width:680px;margin:26px auto 0;text-align:center;color:var(--dim);font-size:15.5px;line-height:1.7;}
+.video-caption b{color:var(--white);}
+.video-frame.portrait{max-width:300px;}
+.video-frame.portrait video{aspect-ratio:9/16;max-height:none;}
+
+/* ---------- owner bio ---------- */
+.owner-grid{display:grid;grid-template-columns:0.8fr 1.2fr;gap:56px;align-items:start;}
+.owner-photo{position:relative;display:flex;flex-direction:column;align-items:center;}
+.owner-photo .frame{width:100%;max-width:270px;aspect-ratio:1/1;border-radius:50%;overflow:hidden;border:3px solid var(--red);box-shadow:0 12px 30px rgba(57,255,20,0.24);background:var(--card);}
+.owner-photo .frame img{width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block;filter:grayscale(10%) contrast(1.05);}
+.owner-tag{margin-top:22px;width:100%;max-width:270px;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--red);padding:16px 20px;text-align:center;}
+.owner-tag div{font-family:'Anton',sans-serif;font-size:22px;}
+.owner-tag small{color:var(--dim);font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;text-transform:uppercase;font-size:13px;}
+.owner-name{font-size:clamp(26px,3.6vw,40px);margin-bottom:6px;}
+.owner-role{color:var(--red-soft);font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:15px;margin-bottom:24px;}
+.owner-bio p{color:var(--dim);line-height:1.75;margin-bottom:16px;font-size:16px;}
+.cred-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;margin-top:26px;}
+.cred-grid .cred{display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-top:1px solid var(--line);font-size:14.5px;color:var(--white);}
+.cred-grid .cred b{font-family:'Anton',sans-serif;color:var(--red);font-size:15px;min-width:26px;}
+.titles-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;justify-content:center;}
+.title-pill{border:1px solid var(--red-deep);background:rgba(57,255,20,0.14);color:var(--red-soft);font-family:'Barlow Condensed',sans-serif;font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:12.5px;padding:8px 14px;}
+.owner-subhead{font-family:'Barlow',sans-serif;text-transform:none;font-weight:700;font-size:19px;margin:28px 0 12px;color:var(--white);}
+.program-grid{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;}
+.program-pill{border:1px solid var(--line);background:var(--card-hi);color:var(--white);font-weight:600;font-size:13.5px;padding:9px 16px;display:flex;align-items:center;gap:8px;}
+.program-pill::before{content:"";width:7px;height:7px;background:var(--red);display:inline-block;transform:rotate(45deg);}
+.owner-closing{margin-top:28px;border:1px solid var(--line);border-left:3px solid var(--red);background:var(--card-hi);padding:20px 24px;}
+.owner-closing p{margin-bottom:0;color:var(--dim);}
+.owner-closing p:last-child{margin-top:12px;color:var(--white);font-weight:600;}
+.owner-video-block{grid-column:1/-1;margin-top:44px;padding-top:40px;border-top:1px solid var(--line);display:flex;flex-direction:column;align-items:center;text-align:center;}
+.owner-video-block h3{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(22px,3.4vw,34px);margin:14px 0 20px;}
+
+/* ---------- owner gallery slider ---------- */
+.owner-gallery{background:var(--bg);padding:56px 0 60px;border-bottom:1px solid var(--line);overflow:hidden;}
+.slider-mask{width:100%;overflow:hidden;-webkit-mask-image:linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);mask-image:linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);}
+.slider-track{display:flex;align-items:center;gap:24px;width:max-content;animation:slideLTR 32s linear infinite;}
+.slider-mask:hover .slider-track{animation-play-state:paused;}
+.slide-item{flex:0 0 auto;width:260px;height:340px;background:var(--card-hi);border:1px solid var(--line);border-radius:6px;overflow:hidden;}
+.slide-item img{width:100%;height:100%;object-fit:contain;background:var(--card-hi);}
+@keyframes slideLTR{from{transform:translateX(-50%);}to{transform:translateX(0%);}}
+
+/* ---------- trainers ---------- */
+.trainers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.trainer-card{background:var(--card);border:1px solid var(--line);overflow:hidden;transition:border-color .2s, transform .2s;}
+.trainer-card:hover{border-color:var(--red-deep);transform:translateY(-6px);}
+.trainer-top{height:220px;background:radial-gradient(circle at 30% 20%, rgba(57,255,20,0.16), transparent 60%), var(--card-hi);display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;}
+.trainer-top img{width:100%;height:100%;object-fit:cover;object-position:top center;filter:grayscale(8%) contrast(1.05);}
+.trainer-body{padding:22px;}
+.trainer-body h3{font-family:'Barlow',sans-serif;font-weight:700;text-transform:none;font-size:19px;margin-bottom:6px;}
+.trainer-role{color:var(--red-soft);font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;text-transform:uppercase;font-size:12.5px;font-weight:600;margin-bottom:10px;}
+.trainer-exp{color:var(--dim);font-size:14px;}
+.trainer-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line);}
+.trainer-badge{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--red-deep);background:rgba(57,255,20,0.12);color:var(--red-soft);font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;font-size:11px;padding:6px 11px;white-space:nowrap;}
+.trainer-badge.incharge{border-color:var(--red);background:var(--red);color:#06110a;}
+
+/* ---------- supplements ---------- */
+.supp-photo{width:100%;height:320px;overflow:hidden;margin-bottom:36px;border:1px solid var(--line);background:#0d0d0d;}
+.supp-photo img{width:100%;height:100%;object-fit:cover;}
+.supp-list{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;background:var(--line);border:1px solid var(--line);}
+.supp-item{background:var(--bg);padding:28px 18px;text-align:center;transition:background .2s;}
+.supp-item:hover{background:var(--card);}
+.supp-item .jar{width:44px;height:56px;margin:0 auto 16px;position:relative;background:linear-gradient(180deg, var(--card-hi), var(--card));border:2px solid var(--red-deep);border-radius:6px 6px 10px 10px;}
+.supp-item .jar::before{content:"";position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:26px;height:10px;background:var(--red);border-radius:2px;}
+.supp-item h3{font-family:'Barlow',sans-serif;text-transform:none;font-weight:700;font-size:15px;}
+.supp-note{text-align:center;color:var(--dim);margin-top:32px;font-size:14.5px;}
+
+/* ---------- rules ---------- */
+.rules-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--line);border:1px solid var(--line);}
+.rule-block{background:var(--bg);padding:30px;}
+.rule-block h3{font-family:'Barlow Condensed',sans-serif;color:var(--red-soft);letter-spacing:2px;text-transform:uppercase;font-size:15px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.rule-block h3::before{content:"";width:8px;height:8px;background:var(--red);transform:rotate(45deg);}
+.rule-block li{list-style:none;color:var(--dim);font-size:14.5px;line-height:1.6;padding:8px 0;border-top:1px solid var(--line);}
+.rule-block li:first-child{border-top:none;}
+.rule-block li b{color:var(--white);font-weight:600;}
+
+/* ---------- service accordion ---------- */
+.service-detail{border:1px solid var(--line);background:var(--card);margin-bottom:14px;}
+.service-detail summary{list-style:none;cursor:pointer;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:'Barlow',sans-serif;font-weight:700;font-size:16.5px;}
+.service-detail summary::-webkit-details-marker{display:none;}
+.service-detail summary .meta{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.service-detail summary .idx{font-family:'Anton',sans-serif;color:var(--red);font-size:16px;}
+.service-detail summary .chev{width:26px;height:26px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--dim);transition:transform .2s;flex:0 0 auto;}
+.service-detail[open] summary .chev{transform:rotate(45deg);color:var(--red);}
+.service-detail .detail-body{padding:0 24px 26px;border-top:1px solid var(--line);}
+.detail-cols{display:grid;grid-template-columns:1.3fr 1fr;gap:30px;margin-top:20px;}
+.detail-cols p{color:var(--dim);line-height:1.7;font-size:15px;}
+.includes-list li{list-style:none;display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:var(--dim);padding:7px 0;}
+.includes-list li::before{content:"";min-width:7px;height:7px;margin-top:6px;background:var(--red);display:inline-block;transform:rotate(45deg);}
+.includes-title{font-family:'Barlow Condensed',sans-serif;letter-spacing:1.5px;text-transform:uppercase;color:var(--red-soft);font-size:13px;font-weight:700;margin-bottom:8px;display:block;}
+
+/* ---------- testimonials marquee ---------- */
+.rating-strip{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:28px;background:var(--card);border:1px solid var(--line);padding:20px 26px;max-width:620px;}
+.rating-strip .g-icon{width:44px;height:44px;border-radius:50%;background:var(--card-hi);display:flex;align-items:center;justify-content:center;font-family:'Anton',sans-serif;font-size:20px;color:var(--red);border:1px solid var(--line);flex:0 0 auto;}
+.rating-strip .score{font-family:'Anton',sans-serif;font-size:26px;}
+.rating-strip .stars{color:var(--red);letter-spacing:2px;font-size:15px;}
+.rating-strip .count{color:var(--dim);font-size:13.5px;font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;text-transform:uppercase;}
+.rating-strip .divider{width:1px;height:36px;background:var(--line);flex:0 0 auto;}
+.see-all-link{color:var(--red);font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;font-size:13px;display:inline-block;}
+.marquee{overflow:hidden;position:relative;-webkit-mask-image:linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);mask-image:linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);}
+.marquee-track{display:flex;gap:22px;width:max-content;animation:slide-rtl 48s linear infinite;}
+.marquee:hover .marquee-track{animation-play-state:paused;}
+@keyframes slide-rtl{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.review-card{background:var(--card);border:1px solid var(--line);padding:26px 24px;width:320px;flex:0 0 auto;display:flex;flex-direction:column;gap:14px;}
+.review-card .stars{color:var(--red);font-size:15px;letter-spacing:2px;}
+.review-card p{color:var(--dim);font-size:14.5px;line-height:1.65;}
+.review-foot{display:flex;align-items:center;gap:12px;margin-top:auto;padding-top:8px;border-top:1px solid var(--line);}
+.review-foot .avatar{width:36px;height:36px;border-radius:50%;background:var(--card-hi);color:var(--red);display:flex;align-items:center;justify-content:center;font-family:'Anton',sans-serif;font-size:14px;border:1px solid var(--line);}
+.review-foot .who b{display:block;font-size:13.5px;}
+.review-foot .who span{color:var(--dimmer);font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;text-transform:uppercase;font-size:11px;}
+
+/* ---------- location / contact ---------- */
+.location-grid--single{max-width:560px;}
+.location-card{background:var(--card);border:1px solid var(--line);overflow:hidden;}
+.location-card .map-frame{width:100%;height:280px;border:0;display:block;filter:grayscale(0.15) invert(0.9) hue-rotate(180deg) contrast(0.9);}
+.location-card .location-body{padding:22px 24px;}
+.location-card .location-tag{font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red-soft);font-size:12px;margin-bottom:8px;}
+.location-card h3{font-size:20px;margin-bottom:10px;}
+.location-card p{color:var(--dim);font-size:14.5px;line-height:1.6;margin-bottom:14px;}
+
+.contact-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;align-items:start;}
+.contact-card{background:var(--card);border:1px solid var(--line);padding:34px;}
+.contact-row{display:flex;gap:16px;padding:18px 0;border-top:1px solid var(--line);align-items:flex-start;}
+.contact-row:first-child{border-top:none;}
+.contact-row .ico{width:38px;height:38px;min-width:38px;border-radius:50%;background:rgba(57,255,20,0.14);color:var(--red);display:flex;align-items:center;justify-content:center;font-family:'Anton',sans-serif;}
+.contact-row div b{display:block;font-size:15.5px;margin-bottom:2px;}
+.contact-row div span{color:var(--dim);font-size:14.5px;}
+.qr-card{background:var(--card);border:1px solid var(--line);padding:28px;margin-top:22px;display:flex;align-items:center;gap:22px;}
+.qr-card .qr-box{width:110px;height:110px;min-width:110px;background:#fff;padding:8px;border-radius:6px;box-shadow:0 8px 20px rgba(0,0,0,0.35);}
+.qr-card .qr-box img{width:100%;height:100%;object-fit:contain;}
+.qr-card .qr-text b{display:block;font-size:15.5px;margin-bottom:6px;}
+.qr-card .qr-text span{color:var(--dim);font-size:13.5px;line-height:1.5;display:block;}
+.form-card{background:var(--card);border:1px solid var(--line);padding:34px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+.field{display:flex;flex-direction:column;gap:8px;}
+.field.full{grid-column:1/-1;}
+.field label{font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;text-transform:uppercase;font-size:12.5px;color:var(--dim);}
+.field input,.field select,.field textarea{background:var(--bg);border:1px solid var(--line);color:var(--white);padding:12px 14px;font-family:'Barlow',sans-serif;font-size:14.5px;}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--red);}
+.field textarea{resize:vertical;min-height:100px;}
+.form-note{margin-top:16px;color:var(--dimmer);font-size:13px;}
+
+/* ---------- footer ---------- */
+footer{padding:56px 0 28px;border-top:1px solid var(--line);background:var(--bg-2);}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:36px;}
+.footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+.footer-brand img{width:38px;height:38px;border-radius:50%;object-fit:cover;flex-shrink:0;background:#0d1730;border:1.5px solid var(--red-deep);}
+.footer-brand span{font-family:'Anton',sans-serif;font-size:17px;}
+.footer-tagline{max-width:280px;}
+.footer-col h4{font-family:'Barlow Condensed',sans-serif;letter-spacing:1.5px;text-transform:uppercase;font-size:13px;color:var(--dim);margin-bottom:16px;}
+.footer-col a,.footer-col p{display:block;color:var(--dim);font-size:14px;margin-bottom:10px;word-break:break-word;cursor:pointer;}
+.footer-col a:hover{color:var(--red-soft);}
+.footer-bottom{border-top:1px solid var(--line);padding-top:22px;text-align:center;color:var(--dimmer);font-size:13.5px;}
+.footer-bottom b{color:var(--red-soft);}
+
+/* ---------- touch-device highlight states (no :hover on phones) ---------- */
+@media (hover:none){
+  .nav-links a:active,.nav-links a.tapped{color:var(--white);}
+  .quick-link:active,.quick-link.tapped{background:var(--card);}
+  .service-card:active,.service-card.tapped{background:var(--card);}
+  .why-card:active .why-img{transform:scale(1.03);}
+  .trainer-card:active,.trainer-card.tapped{border-color:var(--red-deep);}
+  .btn:active{transform:translateY(-1px);box-shadow:0 6px 18px rgba(57,255,20,0.35);}
+  .footer-col a:active{color:var(--red-soft);}
+  .service-detail summary:active{background:var(--card-hi);}
+}
+
+/* ---------- responsive ---------- */
+@media (max-width:980px){
+  .owner-grid,.about-split,.quote-grid.two-col,.contact-grid{grid-template-columns:1fr;}
+  .quick-links{grid-template-columns:repeat(2,1fr);}
+  .trainers-grid,.why-grid,.icon-list,.services-grid{grid-template-columns:repeat(2,1fr);}
+  .plans-grid{grid-template-columns:1fr;max-width:460px;margin-left:auto;margin-right:auto;}
+  .supp-list{grid-template-columns:repeat(2,1fr);}
+  .rules-grid{grid-template-columns:1fr;}
+  .detail-cols{grid-template-columns:1fr;}
+  .form-row{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+
+  .hamburger{display:flex;}
+  nav{padding:20px 20px;}
+  .brand-name{font-size:32px;letter-spacing:2px;}
+  .nav-links{display:flex;flex-direction:column;gap:0;position:absolute;top:100%;left:0;right:0;background:rgba(6,7,6,0.98);border-bottom:1px solid var(--line);max-height:0;overflow:hidden;transition:max-height .3s ease;}
+  .nav-links.open{max-height:calc(100vh - 64px);overflow-y:auto;}
+  .nav-links a{padding:16px 24px;border-bottom:1px solid var(--line);width:100%;box-sizing:border-box;font-size:15px;}
+  .nav-links a.active{border-left:3px solid var(--red);background:rgba(57,255,20,0.06);}
+
+  .hero{background-position:70% 10%;}
+  .hero-grid{max-width:78%;}
+}
+@media (max-width:640px){
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+  section{padding:52px 0;}
+  .wrap{padding:0 20px;}
+
+  /* header — fixed, consistent height on every page */
+  nav{padding:16px 16px;gap:8px;min-height:66px;}
+  .brand{gap:8px;}
+  .brand-name{font-size:20px;letter-spacing:1px;padding-bottom:5px;}
+  .brand-name span{margin:0 5px;}
+  .brand img{width:40px;height:40px;}
+  .nav-right{gap:8px;}
+  .nav-right .btn{padding:9px 14px;font-size:11.5px;letter-spacing:1.2px;}
+  .hamburger{width:34px;height:34px;}
+
+  .btn{padding:11px 18px;font-size:12.5px;letter-spacing:1.5px;}
+  .eyebrow{font-size:12px;letter-spacing:3px;}
+
+  .page-hero,.page-hero.photo-bg{padding:130px 0 40px;}
+  .page-hero h1{font-size:clamp(26px,8vw,34px);}
+  .page-hero p{font-size:14px;line-height:1.6;}
+  .crumb{font-size:11.5px;}
+  .cap{font-size:12px;}
+
+  .section-head{margin-bottom:32px;}
+  .section-head h2{font-size:clamp(24px,7vw,30px);}
+  .section-head p{font-size:14.5px;}
+
+  /* ---- hero banner: real <img> layer with object-fit for a reliable, non-jumpy crop on any phone ---- */
+  .hero{
+    display:flex;
+    align-items:flex-start;
+    min-height:88vh;
+    min-height:88dvh;
+    padding-top:78px;
+    padding-bottom:0;
+    position:relative;
+    background:none;
+    background-color:var(--bg);
+    overflow:hidden;
+    box-sizing:border-box;
+  }
+  .hero-photo-layer{
+    display:block;
+    position:absolute;
+    inset:0;
+    z-index:0;
+  }
+  .hero-photo-layer img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:70% center;
+    display:block;
+  }
+  .hero-photo-layer::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(4,10,7,0.25) 0%, rgba(4,10,7,0.35) 40%, rgba(4,10,7,0.92) 100%);
+  }
+  .hero-grid{
+    position:relative;
+    z-index:2;
+    width:100%;
+    max-width:100%;
+    box-sizing:border-box;
+    padding:16px 0 44px;
+    margin:0;
+  }
+  .hero .wrap{width:100%;box-sizing:border-box;margin:0;padding-left:20px;padding-right:20px;}
+  .hero h1{font-size:clamp(30px,10vw,40px);margin:8px 0 16px;}
+  .hero p.lead{font-size:14px;line-height:1.6;max-width:100%;}
+  .hero-ctas{flex-direction:column;gap:10px;margin-bottom:26px;}
+  .hero-ctas .btn{width:100%;justify-content:center;}
+  .hero-features{flex-direction:column;align-items:flex-start;gap:12px;padding-top:18px;}
+  .hero-features .feat{flex:none;width:100%;padding:0;flex-direction:row;align-items:center;gap:10px;}
+  .hero-features .feat + .feat{border-left:none;padding-left:0;}
+  .hero-features .feat svg{width:22px;height:22px;}
+  .hero-features .feat small{font-size:11.5px;}
+
+  .services-grid,.why-grid,.icon-list,.trainers-grid,.quick-links{grid-template-columns:1fr;}
+  .supp-list{grid-template-columns:repeat(2,1fr);}
+  .cred-grid{grid-template-columns:1fr;}
+  .quote-photo-round,.owner-photo .frame{max-width:160px;width:160px;}
+  .quote-text{font-size:clamp(19px,5.5vw,24px);}
+  .quote-grid.two-col{gap:28px;}
+  .owner-name{font-size:clamp(24px,7vw,30px);}
+  .owner-role{font-size:13px;letter-spacing:1.5px;}
+  .titles-row{gap:8px;}
+  .title-pill{font-size:11.5px;padding:7px 12px;}
+
+  .slide-item{width:140px;height:190px;}
+
+  .plan-row{font-size:13.5px;}
+  .plan-head h3{font-size:20px;}
+
+  .rating-strip{padding:16px 18px;gap:14px;max-width:100%;}
+  .rating-strip .score{font-size:22px;}
+  .contact-row{padding:15px 0;}
+  .contact-card,.form-card{padding:22px;}
+  .qr-card{flex-direction:column;text-align:center;padding:22px;}
+  .location-card .map-frame{height:220px;}
+
+  .footer-grid{grid-template-columns:1fr;text-align:center;gap:26px;}
+  .footer-brand{justify-content:center;}
+  .footer-tagline{max-width:100%;margin-left:auto;margin-right:auto;}
+}
+@media (max-width:400px){
+  nav{min-height:60px;padding:14px 12px;}
+  .nav-right .btn span{display:none;}
+  .nav-right .btn{padding:9px;width:42px;height:42px;justify-content:center;font-size:16px;}
+  .brand-name{font-size:16px;letter-spacing:0.5px;}
+  .brand-name span{margin:0 4px;}
+  .brand img{width:34px;height:34px;}
+  .hero{min-height:82vh;padding-top:68px;}
+  .hero h1{font-size:clamp(26px,10vw,32px);}
+  .supp-list{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="brand" data-nav="home">
+      <img src="logo.png" alt="Ozone Fitness Planet logo">
+      <div class="brand-name">OZONE <span>FITNESS</span> PLANET</div>
+    </div>
+    <div class="nav-links">
+      <a data-nav="home">Home</a>
+      <a data-nav="about">About</a>
+      <a data-nav="services">Services</a>
+      <a data-nav="plans">Plans</a>
+      <a data-nav="contact">Contact</a>
+    </div>
+    <div class="nav-right">
+      <a class="btn" href="tel:+918885005521">📞<span>&nbsp;Call Now</span></a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- ============ HOME ============ -->
+<div class="page" id="page-home">
+  <section class="hero">
+    <div class="hero-photo-layer">
+      <img src="hero-bg.jpg" alt="">
+    </div>
+    <div class="wrap hero-grid">
+      <div class="eyebrow">Build Strength,</div>
+      <h1>TRANSFORM<span class="line2">YOURSELF</span></h1>
+      <p class="lead">Bodybuilding-grade coaching, medically-customized diet plans, and a 25-year veteran trainer behind every program. Walk in carrying doubts — walk out with a plan that actually works, for fat loss, muscle gain, and everything in between.</p>
+      <div class="hero-ctas">
+        <a class="btn" data-nav="plans">Join Now →</a>
+        <a class="btn outline" data-nav="plans">View Plans</a>
+        <a class="btn outline" data-nav="services">View Services</a>
+      </div>
+      <div class="hero-features">
+        <div class="feat"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h3M19 12h3M6 8v8M18 8v8M6 12h12"/></svg><small>Expert Trainers</small></div>
+        <div class="feat"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6c-1.7-1.5-4.4-1.4-6 .3L12 7.7l-2.8-2.8c-1.6-1.7-4.3-1.8-6-.3-1.9 1.7-2 4.6-.2 6.4L12 20l9-9c1.8-1.8 1.7-4.7-.2-6.4Z"/></svg><small>Premium Equipment</small></div>
+        <div class="feat"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 20c-1-3 0-5 1-6.5C6 12 5.5 9.5 7 7c1-1.6 2.7-2.3 3-1"/></svg><small>Results Driven</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--bg-2);">
+    <div class="wrap">
+      <div class="section-head"><div class="eyebrow">Owner &amp; Head Coach</div><h2 style="text-transform:none;">Meet Mr. Md. Khan Sab</h2></div>
+      <div class="owner-grid">
+        <div class="owner-photo">
+          <div class="frame"><img src="owner.png" alt="Mr. Md. Khan Sab"></div>
+          <div class="owner-tag"><div>48<span style="color:var(--red)">.</span></div><small>Years Young, 25 in the Iron Game</small></div>
+          <div class="titles-row">
+            <span class="title-pill">🏆 Mr. India (Jr) 2012</span>
+            <span class="title-pill">🏆 Mr. Andhra 2009</span>
+            <span class="title-pill">🏆 Mr. Hyderabad 2010</span>
+            <span class="title-pill">📜 15+ Certifications</span>
+          </div>
+        </div>
+        <div>
+          <h3 class="owner-name" style="text-transform:none;">Mr. Md. Khan Sab</h3>
+          <div class="owner-role">Experience That Builds Champions</div>
+          <div class="owner-bio">
+            <p>For over 25 years, Mr. Khan has dedicated his life to transforming bodies, improving health, and inspiring confidence in every person who walks onto his floor. What started as his own competitive bodybuilding journey grew into a mission: to build a gym where coaching isn't shouted from the sidelines, but lived out rep by rep, alongside every single client.</p>
+            <p>Unlike trainers who simply instruct from behind a clipboard, Mr. Khan trains alongside every client — correcting form in real time, adjusting programs on the fly, and holding members accountable the same way he once held himself accountable on the competition stage. That hands-on philosophy is the reason members who "never stuck with a gym before" end up staying for years at Ozone.</p>
+            <p>A USA Advanced Certified Fitness Trainer (Level 1, 2 &amp; 3 — Anatomy &amp; Physiology) and a proud member of the AP Body Building Association, Hyderabad, Mr. Khan combines internationally recognised education with decades of hands-on floor experience. He holds more than 15 certifications spanning strength training, nutrition, and functional conditioning — knowledge he applies daily to build diet and training plans around each member's real medical history, not a one-size-fits-all template.</p>
+            <p>Beyond the gym floor, Mr. Khan has represented Andhra Pradesh at the state and national level, competing and placing at bodybuilding championships that shaped the discipline he now instills in every member. At 48, he still trains every day — proof, he says, that the same principles he coaches actually work over a lifetime, not just for a few months.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="owner-gallery">
+    <div class="wrap"><div class="section-head center"><div class="eyebrow center" style="justify-content:center;">On The Competition Floor</div><h2>Moments From Mr. Khan's Journey</h2></div></div>
+    <div class="slider-mask">
+      <div class="slider-track">
+        <div class="slide-item"><img src="gallery-1.jpg" alt="Mr. Khan competing"></div>
+        <div class="slide-item"><img src="gallery-2.jpg" alt="Front double biceps pose"></div>
+        <div class="slide-item"><img src="gallery-3.jpg" alt="Gym portrait"></div>
+        <div class="slide-item"><img src="gallery-4.jpg" alt="Flexing arms"></div>
+        <div class="slide-item"><img src="gallery-5.jpg" alt="Back muscles pose"></div>
+        <div class="slide-item"><img src="gallery-1.jpg" alt="Mr. Khan competing"></div>
+        <div class="slide-item"><img src="gallery-2.jpg" alt="Front double biceps pose"></div>
+        <div class="slide-item"><img src="gallery-3.jpg" alt="Gym portrait"></div>
+        <div class="slide-item"><img src="gallery-4.jpg" alt="Flexing arms"></div>
+        <div class="slide-item"><img src="gallery-5.jpg" alt="Back muscles pose"></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head"><div class="eyebrow">Trainers</div><h2>The Coaching Team</h2><p>Four certified trainers, led by Mr. Khan, covering strength, cardio and dedicated women's coaching.</p></div>
+      <div class="trainers-grid">
+        <div class="trainer-card"><div class="trainer-top"><img src="trainer-zubair.jpg" alt="Zubair Khan"></div><div class="trainer-body"><h3>Zubair Khan</h3><div class="trainer-role">Certified Personal Trainer and floor incharge</div><div class="trainer-exp">7 years of experience</div><div class="trainer-badges"><span class="trainer-badge">📜 Level-1 Certified</span></div></div></div>
+        <div class="trainer-card"><div class="trainer-top"><img src="trainer-tarun.jpg" alt="Tarun"></div><div class="trainer-body"><h3>Tarun</h3><div class="trainer-role">Certified Personal Trainer</div><div class="trainer-exp">2 years of experience</div><div class="trainer-badges"><span class="trainer-badge">📜 K11 Certified</span></div></div></div>
+        <div class="trainer-card"><div class="trainer-top"><img src="trainer-sudheer.jpg" alt="Sudheer"></div><div class="trainer-body"><h3>Sudheer</h3><div class="trainer-role">Certified Personal Trainer</div><div class="trainer-exp">5 years of experience</div><div class="trainer-badges"><span class="trainer-badge">📜 ACE Certified</span></div></div></div>
+        <div class="trainer-card"><div class="trainer-top"><img src="trainer-deekshita.jpg" alt="Deekshita"></div><div class="trainer-body"><h3>Deekshita</h3><div class="trainer-role">Female Certified Personal Trainer</div><div class="trainer-exp">Dedicated women's coaching</div><div class="trainer-badges"><span class="trainer-badge">📜 Gold's Gym Certified</span></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--bg-2);">
+    <div class="wrap"><div class="section-head center"><div class="eyebrow center" style="justify-content:center;">Real Member Feedback</div><h2>What Our Members Say</h2><p>Straight from our Google Business Profile — 4.7 out of 5 across 174 reviews.</p></div></div>
+    <div class="marquee"><div class="marquee-track">
+      <div class="review-card"><div class="stars">★★★★★</div><p>"Absolutely love this gym! The environment is safe, comfortable, and motivating for women. The trainers are friendly, supportive, and always ready to help."</p><div class="review-foot"><div class="avatar">R</div><div class="who"><b>Raga Shruthi</b><span>Women's Training</span></div></div></div>
+      <div class="review-card"><div class="stars">★★★★★</div><p>"I am very satisfied with the overall experience at the gym. The cleaning and hygiene standards are well maintained, and the equipment is in good condition."</p><div class="review-foot"><div class="avatar">M</div><div class="who"><b>Mythili Maheswari</b><span>Hygiene &amp; Equipment</span></div></div></div>
+      <div class="review-card"><div class="stars">★★★★★</div><p>"Great place for beginners. The equipment is well maintained and enough are available. Membership fee is reasonable when compared. Definitely recommended 👍🏻"</p><div class="review-foot"><div class="avatar">J</div><div class="who"><b>Jahnavi Reddy</b><span>Beginner Friendly</span></div></div></div>
+      <div class="review-card"><div class="stars">★★★★★</div><p>"I was pleasantly surprised by the affordability of this gym, especially considering the high-quality equipment and clean environment."</p><div class="review-foot"><div class="avatar">L</div><div class="who"><b>Lokesh Reddy</b><span>Value For Money</span></div></div></div>
+      <div class="review-card"><div class="stars">★★★★★</div><p>"The trainers are helpful and the facilities and cleanliness of the equipment are up to the mark. Overall a top notch gym."</p><div class="review-foot"><div class="avatar">P</div><div class="who"><b>Pranav Sai</b><span>Clean Facilities</span></div></div></div>
+      <div class="review-card"><div class="stars">★★★★★</div><p>"I have been working out here for 1 year. The equipment is the BEST, both free weights and machines for different muscle groups. Definitely recommend."</p><div class="review-foot"><div class="avatar">D</div><div class="who"><b>D Paul</b><span>Equipment &amp; CrossFit</span></div></div></div>
+      <div class="review-card"><div class="stars">★★★★★</div><p>"Best all round and precise equipment available here. Mr. Khan is the best trainer in Kurnool, with the right knowledge to help you transform the right way."</p><div class="review-foot"><div class="avatar">S</div><div class="who"><b>Syed Parvez</b><span>Local Guide</span></div></div></div>
+      <div class="review-card"><div class="stars">★★★★★</div><p>"My journey at Ozone Fitness Planet has been life-changing. I took personal training under Khan Sir, strict with my diet and workouts. We're lucky to have Khan Sir 🙏"</p><div class="review-foot"><div class="avatar">S</div><div class="who"><b>Syed Yasmeen</b><span>Personal Training</span></div></div></div>
+      <div class="review-card"><div class="stars">★★★★★</div><p>"Absolutely love this gym! The environment is safe, comfortable, and motivating for women. The trainers are friendly, supportive, and always ready to help."</p><div class="review-foot"><div class="avatar">R</div><div class="who"><b>Raga Shruthi</b><span>Women's Training</span></div></div></div>
+      <div class="review-card"><div class="stars">★★★★★</div><p>"I am very satisfied with the overall experience at the gym. The cleaning and hygiene standards are well maintained, and the equipment is in good condition."</p><div class="review-foot"><div class="avatar">M</div><div class="who"><b>Mythili Maheswari</b><span>Hygiene &amp; Equipment</span></div></div></div>
+    </div></div>
+    <div class="wrap" style="text-align:center;margin-top:36px;"><a class="btn outline" href="https://share.google/0LkGmI5NHEvKYG383" target="_blank" rel="noopener">See All Reviews On Google</a></div>
+  </section>
+
+  <section class="video-section">
+    <div class="wrap">
+      <div class="section-head center"><div class="eyebrow center" style="justify-content:center;">See It For Yourself</div><h2>Welcome To Ozone Fitness Planet</h2><p>A quick look inside the gym — the energy, the equipment, and the coaching that happens on every visit.</p></div>
+      <div class="video-frame"><video src="hero-bg.mp4" poster="hero-bg-poster.jpg" autoplay muted loop playsinline controls></video></div>
+      <p class="video-caption">This is what a normal session at Ozone actually looks like — <b>no filters, no staged shots</b>. Every member trains on the same floor, under the same hands-on coaching, whether they're just starting out or prepping for a stage.</p>
+    </div>
+  </section>
+
+  <section style="padding:56px 0 36px;">
+    <div class="wrap">
+      <div class="quick-links">
+        <div class="quick-link" data-nav="services">
+          <img src="quicklink-services.jpg" alt="Services" class="quick-img">
+          <div class="quick-body"><div class="ico">01</div><h3>Services</h3><span>Fat loss, strength, yoga, cross-fit &amp; PT.</span><div class="arrow">Explore Services →</div></div>
+        </div>
+        <div class="quick-link" data-nav="plans">
+          <img src="quicklink-plans.jpg" alt="Plans" class="quick-img">
+          <div class="quick-body"><div class="ico">02</div><h3>Plans</h3><span>Strength, cardio &amp; personal training pricing.</span><div class="arrow">See Pricing →</div></div>
+        </div>
+        <div class="quick-link" data-nav="contact">
+          <img src="quicklink-contact.jpg" alt="Contact" class="quick-img">
+          <div class="quick-body"><div class="ico">03</div><h3>Contact</h3><span>Walk in, call, or book a free assessment.</span><div class="arrow">Get In Touch →</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:36px;">
+    <div class="wrap"><div class="section-head"><div class="eyebrow">What We Train</div><h2>Our Services</h2><p>Four disciplines, one floor, zero guesswork — every session supervised and built around a goal you can actually measure.</p></div></div>
+    <div class="wrap" style="padding:0 28px;">
+      <div class="services-grid">
+        <div class="service-card" data-nav="services"><img src="weight-loss.jpg" alt="Weight / Fat Loss" class="service-thumb"><div class="service-body"><div class="service-num">01</div><h3>Weight / Fat Loss</h3><p>Structured, trainer-tracked programs with monthly check-ins.</p></div></div>
+        <div class="service-card" data-nav="services"><img src="muscle-strengthening.jpg" alt="Muscle Strengthening" class="service-thumb"><div class="service-body"><div class="service-num">02</div><h3>Muscle Strengthening</h3><p>Progressive resistance training engineered for real, lasting size.</p></div></div>
+        <div class="service-card" data-nav="services"><img src="yoga-zumba.jpg" alt="Yoga / Zumba" class="service-thumb"><div class="service-body"><div class="service-num">03</div><h3>Yoga / Zumba</h3><p>Low-impact, high-energy sessions for recovery and cardio.</p></div></div>
+        <div class="service-card" data-nav="services"><img src="personal-training.jpg" alt="Personal Training" class="service-thumb"><div class="service-body"><div class="service-num">04</div><h3>Personal Training</h3><p>One-on-one coaching built entirely around your body and timeline.</p></div></div>
+      </div>
+    </div>
+    <div class="wrap" style="text-align:center;margin-top:40px;"><a class="btn outline" data-nav="services">View All Services</a></div>
+  </section>
+
+  <section>
+    <div class="wrap"><div class="section-head center"><div class="eyebrow center" style="justify-content:center;">Why Train Here</div><h2>Why Choose Ozone Fitness</h2><p>Hygiene, supervision and safety aren't add-ons here — they're the baseline.</p></div></div>
+    <div class="wrap" style="padding:0 28px;">
+      <div class="why-grid">
+        <div class="why-card with-img"><img src="why-hygiene.jpg" alt="Hygiene First" class="why-img"><div class="why-body"><div class="ico">1</div><h3>Hygiene First</h3><p>Mandatory towels, wiped-down machines, clean indoor shoes only.</p></div></div>
+        <div class="why-card with-img"><img src="why-supervised.jpg" alt="Trainer Supervised" class="why-img"><div class="why-body"><div class="ico">2</div><h3>Trainer Supervised</h3><p>No advanced lift without a certified trainer watching your form.</p></div></div>
+        <div class="why-card with-img"><img src="why-medical.jpg" alt="Medically Informed" class="why-img"><div class="why-body"><div class="ico">3</div><h3>Medically Informed</h3><p>Diet and training plans built around your actual medical reports.</p></div></div>
+        <div class="why-card with-img"><img src="why-results.jpg" alt="Real Results" class="why-img"><div class="why-body"><div class="ico">4</div><h3>Real Results</h3><p>15 certifications and a national-level competitor coaching every session.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="wrap"><div class="eyebrow center" style="justify-content:center;">Ready?</div><h2>Grow Stronger With Ozone</h2><p>Walk in for a free floor tour and fitness assessment, or lock in your membership today.</p><a class="btn" data-nav="plans">See Membership Plans</a></div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head"><div class="eyebrow">Membership</div><h2>Plans At A Glance</h2><p>Strength and cardio access, or go all-in with a dedicated personal trainer.</p></div>
+      <div class="plans-grid">
+        <div class="plan-card"><div class="plan-head"><h3>Strength</h3><p>Free-weights, machines &amp; strength floor</p></div><div class="plan-rows"><div class="plan-row"><span class="term">Monthly</span><span class="price">₹1,499<small>+₹200 admission</small></span></div><div class="plan-row"><span class="term">1 Year Annual</span><span class="price">₹12,000</span></div></div></div>
+        <div class="plan-card featured"><div class="plan-ribbon">Most Complete</div><div class="plan-head"><h3>Personal Training</h3><p>One-on-one with Mr. Khan's team</p></div><div class="plan-rows"><div class="plan-row"><span class="term">Monthly</span><span class="price">₹8,000</span></div><div class="plan-row"><span class="term">1 Year Annual</span><span class="price">₹70,000</span></div></div></div>
+        <div class="plan-card"><div class="plan-head"><h3>Cardio</h3><p>Cardio floor &amp; conditioning access</p></div><div class="plan-rows"><div class="plan-row"><span class="term">Monthly</span><span class="price">₹2,000<small>+₹200 admission</small></span></div><div class="plan-row"><span class="term">1 Year Annual</span><span class="price">₹18,000</span></div></div></div>
+      </div>
+      <div class="wrap" style="text-align:center;margin-top:32px;padding:0;"><a class="btn outline" data-nav="plans">See Full Pricing</a></div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<div class="page" id="page-about">
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="crumb"><a data-nav="home">Home</a> / About</div>
+      <div class="eyebrow">Our Story</div>
+      <h1>About Ozone Fitness Planet</h1>
+      <p>Founded in Kurnool on one belief: real results come from real coaching, not fancy machines. Every program here is led by a trainer who has competed on stage himself.</p>
+    </div>
+  </section>
+
+  <section style="padding-bottom:36px;">
+    <div class="wrap about-split">
+      <div>
+        <div class="eyebrow">How We Started</div>
+        <h2 style="font-size:clamp(26px,3.6vw,40px);margin-top:14px;">Built On The Platform, Not Behind A Clipboard</h2>
+        <p>Ozone Fitness Planet was founded by Mr. Md. Khan Sab, a competitive bodybuilder with 25 years on the gym floor. Too many members were quitting on generic programs that ignored their actual health conditions — so Ozone was built to do the opposite.</p>
+        <p>Today, every member gets a plan shaped around their own body: medical history, current condition, and real goals — coached by a team that trains alongside you, not just from behind a desk.</p>
+      </div>
+      <div><img src="personal-training.jpg" alt="Coaching on the floor"></div>
+    </div>
+  </section>
+
+  <section class="video-section">
+    <div class="wrap">
+      <div class="section-head"><div class="eyebrow center" style="justify-content:center;">See It For Yourself</div><h2>Life On The Ozone Floor</h2><p>A quick look inside the gym — the energy, the equipment, and the coaching that happens on every visit.</p></div>
+      <div class="video-frame"><video src="hero-bg.mp4" poster="hero-bg-poster.jpg" autoplay muted loop playsinline controls></video></div>
+      <p class="video-caption">This is what a normal session at Ozone actually looks like — <b>no filters, no staged shots</b>. Every member trains on the same floor, under the same hands-on coaching, whether they're just starting out or prepping for a stage.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:36px;">
+    <div class="wrap"><div class="section-head"><div class="eyebrow">Our Approach</div><h2>What We Do Best</h2><p>Six pillars every Ozone program is built from.</p></div></div>
+    <div class="wrap" style="padding:0 28px;">
+      <div class="icon-list">
+        <div class="icon-item"><span class="glyph">🏋️</span><h3>Strength Training</h3><p>Free-weights and machine work programmed for progressive, lasting gains.</p></div>
+        <div class="icon-item"><span class="glyph">🥗</span><h3>Nutrition Coaching</h3><p>Diet plans built from your actual medical reports, not generic templates.</p></div>
+        <div class="icon-item"><span class="glyph">👤</span><h3>Personal Training</h3><p>One-on-one coaching for members who want a trainer with them every rep.</p></div>
+        <div class="icon-item"><span class="glyph">🤸</span><h3>Group Classes</h3><p>Yoga, Zumba and cross-fit sessions for variety and community energy.</p></div>
+        <div class="icon-item"><span class="glyph">💆</span><h3>Recovery &amp; Massage</h3><p>Full-body massage sessions to keep muscles loose between training days.</p></div>
+        <div class="icon-item"><span class="glyph">🤝</span><h3>Ongoing Support</h3><p>Trainers track your progress and adjust the plan as your body changes.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote-block">
+    <div class="wrap quote-grid">
+      <div class="quote-photo-wrap"><img src="owner.png" alt="Mr. Md. Khan Sab"></div>
+      <span class="quote-mark">"</span>
+      <p class="quote-text">Discipline, not motivation, is what actually changes a body. My job is to be on that floor with you until it does.</p>
+      <div class="quote-by"><b>Mr. Md. Khan Sab</b> — Owner &amp; Head Coach, 25 Years Experience</div>
+      <a class="btn outline" style="margin-top:26px;" data-nav="home">Meet Our Team</a>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="wrap"><div class="eyebrow center" style="justify-content:center;">Join Us</div><h2>Ready To Build Something Real?</h2><p>Tell us about your goals and we'll match you to the right program.</p><a class="btn" data-nav="contact">Start Your Journey</a></div>
+  </section>
+</div>
+
+<!-- ============ SERVICES ============ -->
+<div class="page" id="page-services">
+  <section class="page-hero photo-bg hero-bg1">
+    <div class="wrap">
+      <div class="crumb"><a data-nav="home">Home</a> / Services</div>
+      <div class="eyebrow">What We Train</div>
+      <h1>Our Services</h1>
+      <p>Everything your body needs to build a serious, sustainable training habit. Tap any service below for the full detail.</p>
+      <div class="cap">Inside The Ozone Training Floor</div>
+    </div>
+  </section>
+
+  <section style="padding-bottom:20px;padding-top:60px;">
+    <div class="wrap">
+      <div class="services-grid">
+        <div class="service-card" onclick="document.getElementById('sv-weight-loss').open=true;document.getElementById('sv-weight-loss').scrollIntoView({behavior:'smooth'});"><div class="service-thumb"><img src="fat-loss.jpg" alt="Weight loss training" style="object-position:center 15%;"></div><div class="service-body"><div class="service-num">01</div><h3>Weight / Fat Loss</h3><p>Structured programs built around measurable, month-on-month results.</p></div></div>
+        <div class="service-card" onclick="document.getElementById('sv-muscle').open=true;document.getElementById('sv-muscle').scrollIntoView({behavior:'smooth'});"><div class="service-thumb"><img src="https://images.pexels.com/photos/4162475/pexels-photo-4162475.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Muscle Strengthening"></div><div class="service-body"><div class="service-num">02</div><h3>Muscle Strengthening</h3><p>Progressive resistance training for real, lasting size and strength.</p></div></div>
+        <div class="service-card" onclick="document.getElementById('sv-flex').open=true;document.getElementById('sv-flex').scrollIntoView({behavior:'smooth'});"><div class="service-thumb"><img src="flexibility.jpg" alt="Flexibility & Endurance" style="object-position:center 25%;"></div><div class="service-body"><div class="service-num">03</div><h3>Flexibility &amp; Endurance</h3><p>Mobility and stamina work that keeps every other goal injury-free.</p></div></div>
+        <div class="service-card" onclick="document.getElementById('sv-yoga').open=true;document.getElementById('sv-yoga').scrollIntoView({behavior:'smooth'});"><div class="service-thumb"><img src="https://images.pexels.com/photos/8437076/pexels-photo-8437076.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Yoga / Zumba"></div><div class="service-body"><div class="service-num">04</div><h3>Yoga / Zumba</h3><p>Low-impact, high-energy sessions for balance and recovery days.</p></div></div>
+        <div class="service-card" onclick="document.getElementById('sv-crossfit').open=true;document.getElementById('sv-crossfit').scrollIntoView({behavior:'smooth'});"><div class="service-thumb"><img src="https://images.pexels.com/photos/9958666/pexels-photo-9958666.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Cross-Fit"></div><div class="service-body"><div class="service-num">05</div><h3>Cross-Fit</h3><p>High-intensity functional training for all-round conditioning.</p></div></div>
+        <div class="service-card" onclick="document.getElementById('sv-pt').open=true;document.getElementById('sv-pt').scrollIntoView({behavior:'smooth'});"><div class="service-thumb"><img src="https://images.pexels.com/photos/36120641/pexels-photo-36120641.png?auto=compress&cs=tinysrgb&w=800" alt="Personal Training"><span class="tag-pop">Most Popular</span></div><div class="service-body"><div class="service-num">06</div><h3>Personal Training</h3><p>One-on-one coaching, fully customised to your body and goals.</p></div></div>
+        <div class="service-card" onclick="document.getElementById('sv-group').open=true;document.getElementById('sv-group').scrollIntoView({behavior:'smooth'});"><div class="service-thumb"><img src="https://images.pexels.com/photos/14013675/pexels-photo-14013675.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Small Group Training"></div><div class="service-body"><div class="service-num">07</div><h3>Small Group Training</h3><p>Train with a partner or small crew, with full trainer attention.</p></div></div>
+        <div class="service-card" onclick="document.getElementById('sv-assess').open=true;document.getElementById('sv-assess').scrollIntoView({behavior:'smooth'});"><div class="service-thumb"><img src="https://images.pexels.com/photos/36510739/pexels-photo-36510739.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Fitness Assessment"></div><div class="service-body"><div class="service-num">08</div><h3>Fitness Assessment</h3><p>A proper orientation and body assessment before you start.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--bg-2);padding-top:56px;">
+    <div class="wrap">
+      <div class="section-head"><div class="eyebrow">Full Detail</div><h2>Service Breakdown</h2><p>Tap a service to see what's included and why it matters for your body.</p></div>
+
+      <details class="service-detail" id="sv-weight-loss">
+        <summary><span class="meta"><span class="idx">01</span> Weight / Fat Loss</span><span class="chev">+</span></summary>
+        <div class="detail-body"><div class="detail-cols"><p>Fat loss is the most requested goal at Ozone. Your program is built around your current condition, activity level, and diet, then adjusted every few weeks based on real progress.</p><div><span class="includes-title">What's Included</span><ul class="includes-list"><li>Body composition check-in</li><li>Structured training split for fat loss</li><li>Diet guidance from a certified nutritionist</li><li>Monthly progress review</li></ul></div></div></div>
+      </details>
+      <details class="service-detail" id="sv-muscle">
+        <summary><span class="meta"><span class="idx">02</span> Muscle Strengthening</span><span class="chev">+</span></summary>
+        <div class="detail-body"><div class="detail-cols"><p>Built for members who want visible, lasting strength — not just a pump. Programming follows progressive overload principles, with form corrected in real time.</p><div><span class="includes-title">What's Included</span><ul class="includes-list"><li>Progressive resistance programming</li><li>Free-weight and machine access</li><li>Form correction from certified trainers</li><li>Periodic strength benchmarking</li></ul></div></div></div>
+      </details>
+      <details class="service-detail" id="sv-flex">
+        <summary><span class="meta"><span class="idx">03</span> Flexibility &amp; Endurance</span><span class="chev">+</span></summary>
+        <div class="detail-body"><div class="detail-cols"><p>Mobility work that protects every other goal. Better range of motion and stamina mean fewer injuries, better lifts, and faster recovery.</p><div><span class="includes-title">What's Included</span><ul class="includes-list"><li>Guided mobility and stretching routines</li><li>Endurance-building cardio blocks</li><li>Injury-prevention focused coaching</li></ul></div></div></div>
+      </details>
+      <details class="service-detail" id="sv-yoga">
+        <summary><span class="meta"><span class="idx">04</span> Yoga / Zumba</span><span class="chev">+</span></summary>
+        <div class="detail-body"><div class="detail-cols"><p>A lower-impact complement to strength and cardio days — yoga for breath and recovery, Zumba for a high-energy, music-driven cardio session.</p><div><span class="includes-title">What's Included</span><ul class="includes-list"><li>Guided yoga sessions</li><li>Zumba group classes</li><li>Recovery-focused breathing work</li></ul></div></div></div>
+      </details>
+      <details class="service-detail" id="sv-crossfit">
+        <summary><span class="meta"><span class="idx">05</span> Cross-Fit</span><span class="chev">+</span></summary>
+        <div class="detail-body"><div class="detail-cols"><p>High-intensity, functional training for members chasing all-round conditioning. Sessions are trainer-led and scaled to your current fitness level.</p><div><span class="includes-title">What's Included</span><ul class="includes-list"><li>Trainer-led functional circuits</li><li>Scaled intensity for all levels</li><li>Included in the PT package (2 sessions/month)</li></ul></div></div></div>
+      </details>
+      <details class="service-detail" id="sv-pt">
+        <summary><span class="meta"><span class="idx">06</span> Personal Training <span class="tag-pop" style="position:static;margin-left:6px;">Most Popular</span></span><span class="chev">+</span></summary>
+        <div class="detail-body"><div class="detail-cols"><p>Ozone's most complete program. A dedicated trainer works with you every session, with a diet plan built from your medical reports.</p><div><span class="includes-title">What's Included</span><ul class="includes-list"><li>Approx. 3–4 kg of weight loss per month</li><li>A dedicated personal trainer every session</li><li>A diet plan customised to your medical reports</li><li>2 cross-fit sessions included</li><li>Full-body stretching for muscle recovery</li></ul></div></div></div>
+      </details>
+      <details class="service-detail" id="sv-group">
+        <summary><span class="meta"><span class="idx">07</span> Small Group Training</span><span class="chev">+</span></summary>
+        <div class="detail-body"><div class="detail-cols"><p>For members who want personal-training style attention split with a friend or small crew — more affordable, still closely coached.</p><div><span class="includes-title">What's Included</span><ul class="includes-list"><li>Shared coaching for 2 or more people</li><li>Same trainer-led structure as solo PT</li></ul></div></div></div>
+      </details>
+      <details class="service-detail" id="sv-assess">
+        <summary><span class="meta"><span class="idx">08</span> Fitness Assessment / Orientation</span><span class="chev">+</span></summary>
+        <div class="detail-body"><div class="detail-cols"><p>Every new member starts here — no workout without an orientation and base health check.</p><div><span class="includes-title">What's Included</span><ul class="includes-list"><li>Baseline fitness assessment</li><li>Gym orientation and equipment walkthrough</li><li>Health and medical disclosure review</li></ul></div></div></div>
+      </details>
+    </div>
+  </section>
+
+  <section id="supplements">
+    <div class="wrap"><div class="section-head center"><div class="eyebrow center" style="justify-content:center;">In-House Nutrition Store</div><h2>Supplements</h2><p>Genuine, trainer-recommended supplements — sold right at the gym.</p></div></div>
+    <div class="wrap" style="padding:0 28px;">
+      <div class="supp-photo"><img src="supplements.png" alt="Protein and performance supplement range"></div>
+      <div class="supp-list">
+        <div class="supp-item"><div class="jar"></div><h3>Whey Protein Isolate</h3></div>
+        <div class="supp-item"><div class="jar"></div><h3>Whey Concentrate</h3></div>
+        <div class="supp-item"><div class="jar"></div><h3>Mass Gainer</h3></div>
+        <div class="supp-item"><div class="jar"></div><h3>Pre-Workout</h3></div>
+        <div class="supp-item"><div class="jar"></div><h3>EAA / BCAA</h3></div>
+      </div>
+      <p class="supp-note">Plus a full range of supportive supplements — ask a trainer for what fits your program.</p>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="wrap"><div class="eyebrow center" style="justify-content:center;">Interested?</div><h2>Find The Right Program</h2><p>Tell us your goal and we'll match you to a plan — usually the same day.</p><a class="btn" data-nav="contact">Get A Free Assessment</a></div>
+  </section>
+</div>
+
+<!-- ============ PLANS ============ -->
+<div class="page" id="page-plans">
+  <section class="page-hero photo-bg hero-bg2">
+    <div class="wrap">
+      <div class="crumb"><a data-nav="home">Home</a> / Plans</div>
+      <div class="eyebrow">Membership</div>
+      <h1>Plans &amp; Pricing</h1>
+      <p>Strength and cardio access, or go all-in with a dedicated personal trainer. Combo pricing available for 2 or more people joining together.</p>
+      <div class="cap">Find The Membership That Fits Your Goal</div>
+    </div>
+  </section>
+
+  <section style="padding-top:70px;">
+    <div class="wrap">
+      <div class="plans-grid">
+        <div class="plan-card">
+          <div class="plan-thumb"><img src="https://images.pexels.com/photos/1552252/pexels-photo-1552252.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Strength floor"></div>
+          <div class="plan-head"><h3>Strength</h3><p>Free-weights, machines &amp; strength floor access</p></div>
+          <div class="plan-rows">
+            <div class="plan-row"><span class="term">Monthly</span><span class="price"><span class="strike">₹1,800</span><span class="offer">₹1,499</span><small>+₹200 admission</small></span></div>
+            <div class="plan-row"><span class="term">3 Months</span><span class="price"><span class="strike">₹4,500</span><span class="offer">₹3,599</span></span></div>
+            <div class="plan-row"><span class="term">6 Months</span><span class="price"><span class="strike">₹8,000</span><span class="offer">₹5,999</span></span></div>
+            <div class="plan-row"><span class="term">1 Year Annual</span><span class="price"><span class="strike">₹16,000</span><span class="offer">₹12,000</span></span></div>
+          </div>
+          <div class="plan-foot"><a class="btn outline" style="width:100%;justify-content:center;" data-nav="contact">Enquire</a></div>
+        </div>
+
+        <div class="plan-card featured">
+          <div class="plan-ribbon">Most Complete</div>
+          <div class="plan-thumb"><img src="https://images.pexels.com/photos/4853672/pexels-photo-4853672.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Personal training"></div>
+          <div class="plan-head"><h3>Personal Training</h3><p>One-on-one coaching with Mr. Khan's team</p></div>
+          <div class="plan-rows">
+            <div class="plan-row"><span class="term">Monthly</span><span class="price">₹8,000</span></div>
+            <div class="plan-row"><span class="term">3 Months</span><span class="price">₹21,000</span></div>
+            <div class="plan-row"><span class="term">6 Months</span><span class="price">₹40,000</span></div>
+            <div class="plan-row"><span class="term">1 Year Annual</span><span class="price">₹70,000</span></div>
+          </div>
+          <div class="plan-foot">
+            <ul class="pt-benefits">
+              <li>Approximately 3–4 kg of weight loss per month</li>
+              <li>A dedicated personal trainer with you in every session</li>
+              <li>A diet plan customised to your medical reports</li>
+              <li>2 cross-fit sessions included</li>
+              <li>Full-body stretching for muscle recovery</li>
+            </ul>
+            <a class="btn" style="width:100%;justify-content:center;margin-top:18px;" data-nav="contact">Enquire</a>
+          </div>
+        </div>
+
+        <div class="plan-card">
+          <div class="plan-thumb"><img src="https://images.pexels.com/photos/3890344/pexels-photo-3890344.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Cardio training"></div>
+          <div class="plan-head"><h3>Cardio</h3><p>Cardio floor, endurance &amp; conditioning access</p></div>
+          <div class="plan-rows">
+            <div class="plan-row"><span class="term">Monthly</span><span class="price">₹2,000<small>+₹200 admission</small></span></div>
+            <div class="plan-row"><span class="term">3 Months</span><span class="price">₹5,000</span></div>
+            <div class="plan-row"><span class="term">3+1 Months <small style="color:var(--dimmer)">(2+ persons)</small></span><span class="price">₹6,000</span></div>
+            <div class="plan-row"><span class="term">6 Months</span><span class="price">₹10,000</span></div>
+            <div class="plan-row"><span class="term">1 Year Annual</span><span class="price">₹18,000</span></div>
+          </div>
+          <div class="plan-foot"><a class="btn outline" style="width:100%;justify-content:center;" data-nav="contact">Enquire</a></div>
+        </div>
+      </div>
+      <div class="note-strip">3+1 combo pricing applies for 2 or more people joining together. Call the gym directly to confirm current rates before enrolling.</div>
+    </div>
+  </section>
+
+  <section style="background:var(--bg-2);">
+    <div class="wrap">
+      <div class="section-head"><div class="eyebrow">House Rules</div><h2>Gym Etiquette</h2><p>What we expect from every member on the floor.</p></div>
+      <div class="rules-grid">
+        <div class="rule-block"><h3>Hygiene &amp; Health</h3><ul><li><b>Towel mandatory</b> — no towel, no workout.</li><li>Wipe down machines after every use.</li><li>Separate clean indoor shoes required.</li><li>Members with diabetes, PCOS or heart conditions must keep trainers updated.</li></ul></div>
+        <div class="rule-block"><h3>Equipment Etiquette</h3><ul><li>Re-rack every dumbbell and plate.</li><li>No dropping or slamming weights.</li><li>Share the space; don't sit on machines between sets.</li><li>Report loose or broken machines to a trainer immediately.</li></ul></div>
+        <div class="rule-block"><h3>Professional Conduct</h3><ul><li>Advanced lifts only under certified trainer supervision.</li><li>Proper athletic attire required at all times.</li><li>Respect the privacy of other members.</li><li>Keep phone calls short and quiet.</li></ul></div>
+        <div class="rule-block"><h3>Safety First</h3><ul><li>Warm up for at least 5–10 minutes before every session.</li><li>Always ask a trainer for a spot when lifting heavy.</li><li>Stay hydrated.</li><li>No workout without admission and a base health check.</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="wrap"><div class="eyebrow center" style="justify-content:center;">Ready?</div><h2>Lock In Your Plan Today</h2><p>Call ahead or walk in — our team will help you choose the right membership.</p><a class="btn" href="tel:+918500855006">Call 85008 55006</a></div>
+  </section>
+</div>
+
+<!-- ============ CONTACT ============ -->
+<div class="page" id="page-contact">
+  <section class="page-hero photo-bg hero-bg4">
+    <div class="wrap">
+      <div class="crumb"><a data-nav="home">Home</a> / Contact</div>
+      <div class="eyebrow">Get In Touch</div>
+      <h1>Let's Get You Started</h1>
+      <p>Have a question about plans, timings or personal training? Call ahead, walk in, or send us a message below.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:20px;">
+    <div class="wrap contact-grid">
+      <div>
+        <div class="contact-card">
+          <div class="contact-row"><div class="ico">📍</div><div><b>Location</b><span>SJR Complex, 2nd Floor, Near Nandyal Checkpost, Kurnool, Andhra Pradesh 518002</span></div></div>
+          <div class="contact-row"><div class="ico">📞</div><div><b>Phone</b><span><a href="tel:+918500855006">+91 85008 55006</a> / <a href="tel:+918885005521">+91 88850 05521</a></span></div></div>
+          <div class="contact-row"><div class="ico">🌐</div><div><b>Website</b><span><a href="https://www.ozonefintessplanet.co.in" target="_blank" rel="noopener">www.ozonefintessplanet.co.in</a></span></div></div>
+          <div class="contact-row"><div class="ico">✉️</div><div><b>Email</b><span>planetozonefitness07@gmail.com</span></div></div>
+          <div class="contact-row"><div class="ico">🏋️</div><div><b>Proprietor</b><span>Mr Khan Sab — Senior Most Level 2 Fitness Trainer, USA Certified Nutritionist</span></div></div>
+        </div>
+        <div class="qr-card">
+          <div class="qr-box"><img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fwww.ozonefintessplanet.co.in" alt="Scan to visit Ozone Fitness Planet website"></div>
+          <div class="qr-text"><b>Scan To Connect</b><span>Point your phone camera at this code to save our number, open our website, or find us on the map — same as the QR on our business card.</span></div>
+        </div>
+        <div class="location-card" style="margin-top:22px;">
+          <iframe class="map-frame" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=SJR+Complex+2nd+Floor+Near+Nandyal+Checkpost+Kurnool+518002&output=embed"></iframe>
+        </div>
+      </div>
+      <div>
+        <div class="form-card">
+          <div class="eyebrow">Send A Message</div>
+          <h2 style="font-size:26px;margin:14px 0 18px;">We'll Get Back To You</h2>
+          <form id="contact-form">
+            <div class="form-row">
+              <div class="field"><label for="c-name">Full Name</label><input type="text" id="c-name" placeholder="Your name" required></div>
+              <div class="field"><label for="c-phone">Phone Number</label><input type="tel" id="c-phone" placeholder="Your phone number" required></div>
+            </div>
+            <div class="field full" style="margin-bottom:16px;">
+              <label for="c-interest">I'm Interested In</label>
+              <select id="c-interest"><option>Strength Membership</option><option>Cardio Membership</option><option>Personal Training</option><option>Just Have A Question</option></select>
+            </div>
+            <div class="field full" style="margin-bottom:16px;"><label for="c-message">Message</label><textarea id="c-message" rows="5" placeholder="Tell us a bit about your goals..."></textarea></div>
+            <button type="submit" class="btn" style="width:100%;justify-content:center;">Send Message</button>
+            <p class="form-note" id="c-form-msg" style="display:none;color:var(--red-soft);"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="wrap"><div class="eyebrow center" style="justify-content:center;">Prefer To Talk?</div><h2>Call The Gym Directly</h2><p>Our team can answer questions and help you pick the right plan on the spot.</p><a class="btn" href="tel:+918500855006">Call 85008 55006</a></div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><img src="logo.png" alt="logo"><span>OZONE FITNESS PLANET</span></div>
+        <p class="footer-tagline">Serious bodybuilding-grade coaching in the heart of Kurnool, led by a 25-year veteran trainer.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a data-nav="home">Home</a>
+        <a data-nav="about">About</a>
+        <a data-nav="contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a data-nav="services">Services</a>
+        <a data-nav="plans">Membership Plans</a>
+        <a href="https://share.google/0LkGmI5NHEvKYG383" target="_blank" rel="noopener">Google Reviews</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>planetozonefitness07@gmail.com</p>
+        <p>+91 85008 55006 / +91 88850 05521</p>
+        <p><a href="https://www.ozonefintessplanet2.co.in" target="_blank" rel="noopener">www.ozonefintessplanet.co.in</a></p>
+        <p>SJR Complex, 2nd Floor, Near Nandyal Checkpost, Kurnool, Andhra Pradesh 518002</p>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 <b>Ozone Fitness Planet</b> — Kurnool. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+/* ---------- SPA navigation with real history support ---------- */
+var PAGES = ['home','about','services','plans','contact'];
+
+function safePushState(state, hash){
+  try{ history.pushState(state, '', '#' + hash); return true; }
+  catch(err){
+    try{ location.hash = hash; return true; }catch(e){ return false; }
+  }
+}
+function safeReplaceState(state, hash){
+  try{ history.replaceState(state, '', '#' + hash); }
+  catch(err){ /* sandboxed preview — ignore, page still works */ }
+}
+
+function renderPage(page){
+  document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('active'); });
+  var target = document.getElementById('page-' + page);
+  if(target) target.classList.add('active');
+  document.querySelectorAll('.nav-links a').forEach(function(a){
+    a.classList.toggle('active', a.getAttribute('data-nav') === page);
+  });
+  window.scrollTo(0,0);
+  var links = document.querySelector('.nav-links');
+  var burger = document.getElementById('hamburger');
+  if(links.classList.contains('open')){
+    links.classList.remove('open');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded','false');
+  }
+}
+
+function navigate(page){
+  if(PAGES.indexOf(page) === -1) page = 'home';
+  renderPage(page);
+  safePushState({page:page}, page);
+}
+
+document.addEventListener('click', function(e){
+  var el = e.target.closest('[data-nav]');
+  if(el){
+    e.preventDefault();
+    navigate(el.getAttribute('data-nav'));
+  }
+});
+
+// brief tap highlight for touch devices (mirrors the :hover look)
+document.addEventListener('touchstart', function(e){
+  var el = e.target.closest('[data-nav], .quick-link, .trainer-card');
+  if(el){
+    el.classList.add('tapped');
+    setTimeout(function(){ el.classList.remove('tapped'); }, 300);
+  }
+}, {passive:true});
+
+// browser / phone back-and-forward button support
+window.addEventListener('popstate', function(e){
+  var page = (e.state && e.state.page) || (location.hash ? location.hash.replace('#','') : 'home');
+  renderPage(page);
+});
+
+var hamburger = document.getElementById('hamburger');
+hamburger.addEventListener('click', function(){
+  var links = document.querySelector('.nav-links');
+  var open = links.classList.toggle('open');
+  hamburger.classList.toggle('open', open);
+  hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+});
+
+var cf = document.getElementById('contact-form');
+if(cf){
+  cf.addEventListener('submit', function(e){
+    e.preventDefault();
+    var msg = document.getElementById('c-form-msg');
+    msg.textContent = 'Thanks! Your message has been noted. Call 85008 55006 for a faster response.';
+    msg.style.display = 'block';
+    this.reset();
+  });
+}
+
+// initial page load — honor a deep link like site.html#plans
+var startPage = location.hash ? location.hash.replace('#','') : 'home';
+if(PAGES.indexOf(startPage) === -1) startPage = 'home';
+renderPage(startPage);
+safeReplaceState({page:startPage}, startPage);
+
+document.querySelectorAll('video[autoplay]').forEach(function(v){
+  var tryPlay = function(){ var p = v.play(); if(p && p.catch){ p.catch(function(){}); } };
+  tryPlay();
+  v.addEventListener('loadedmetadata', tryPlay);
+  document.addEventListener('click', tryPlay, { once:true });
+});
+</script>
+</body>
+</html>
